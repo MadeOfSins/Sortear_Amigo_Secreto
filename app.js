@@ -3,10 +3,6 @@
 
 let nomesAmigos = [];
 
-adicionarAmigo()
-sortearAmigo()
-
-
 //Função para adicionar um amigo na lista
 function adicionarAmigo() {
     //Armazenando valor do input
@@ -18,7 +14,7 @@ function adicionarAmigo() {
         alert("Por favor, insira um nome.");   
     } else {
         //Entrando aqui significa que não está vazio, então adicionar a lista e apagar o valor do campo
-        nomesAmigos.push(nome);
+        nomesAmigos.push(listaNomes);
         
         // Atualiza a lista na tela
         let lista = document.querySelector("#listaAmigos");
@@ -30,6 +26,21 @@ function adicionarAmigo() {
         nome.value = "";
     }
 }
-    
-    
 
+//Função para sortear amigo e mostrar na tela o nome sorteado
+function sortearAmigo() {
+  if (nomesAmigos.length == 0) {
+    alert("Adicione pelo menos um nome antes de sortear!");
+    return;
+  } else {
+    let indice = Math.floor(Math.random() * nomesAmigos.length);
+    let sorteado = nomesAmigos[indice];
+
+    // Mostra o resultado na tela
+    let resultado = document.querySelector("#resultado");
+
+    let li = document.createElement("li");
+    li.textContent = "Amigo sorteado: " + sorteado;
+    resultado.appendChild(li);
+  }
+}
