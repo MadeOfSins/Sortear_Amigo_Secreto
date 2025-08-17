@@ -38,7 +38,8 @@ function sortearAmigo() {
 
     // Mostra o resultado na tela
     let resultado = document.querySelector("#resultado");
-
+    // Limpando resultado anterior do sorteio
+    resultado.innerHTML = "";
     let li = document.createElement("li");
     li.textContent = "Amigo sorteado: " + sorteado;
     resultado.appendChild(li);
